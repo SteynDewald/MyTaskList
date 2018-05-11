@@ -6,17 +6,20 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TODO_assignment;
 using TODO_assignment.Controllers;
+using TODO_assignment.Models;
+using System.Security.Principal;
+using System.Threading;
 
 namespace TODO_assignment.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class TaskItemsControllerTest
     {
         [TestMethod]
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            TaskItemsController controller = new TaskItemsController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -26,29 +29,30 @@ namespace TODO_assignment.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void Create()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            TaskItemsController controller = new TaskItemsController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Create() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void Edit()
+        {
+            // Arrange
+            TaskItemsController controller = new TaskItemsController();
+
+            // Act
+            ViewResult result = controller.Create() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+        
     }
 }

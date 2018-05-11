@@ -16,7 +16,7 @@ namespace TODO_assignment
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "TaskItems", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

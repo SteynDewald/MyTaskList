@@ -25,6 +25,9 @@ namespace TODO_assignment.Models
         {
         }
 
+        public DbSet<TaskItem> TaskList { get; set; }
+        public DbSet<TaskHistory> History { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TODO_assignment.Models.TaskHistory>
+
+
+@{
+    ViewBag.Title = "History";
+}
+
+<h2>History</h2 >
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TaskItem.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TimeStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskItem.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

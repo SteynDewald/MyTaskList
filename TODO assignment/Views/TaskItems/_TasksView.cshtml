@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TODO_assignment.Models.TaskItem>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (!item.Completed)
+                {
+                    @Html.DisplayFor(modelItem => item.Title)
+                }
+                else
+                {
+                    <div class="TaskStateCompleted">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </div>
+                }
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.Completed, new { id = item.TaskID, @class = "TaskState" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TaskID }) |
+                @Html.ActionLink("History", "History", new { id = item.TaskID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TaskID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script src="~/App_Scripts/TaskStateListener.js"></script>   
